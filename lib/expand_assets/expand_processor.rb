@@ -33,7 +33,11 @@ module ExpandAssets
       <<-JST
 (function() {
   #{namespace} || (#{namespace} = {});
-  #{namespace}[#{name.inspect}] = function(directive) { return $(#{data.inspect}).expand(directive); };
+  var template = null;
+  #{namespace}[#{name.inspect}] = function(directive) { 
+    template = template || $(#{data.inspect});
+    return template.expand(directive);
+  };
 }).call(this);
       JST
     end
