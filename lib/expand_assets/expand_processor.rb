@@ -10,7 +10,7 @@ module ExpandAssets
     end
 
     # By default, remove any leading templates/ in the name
-    self.name_filter = lambda { |n| n.sub /^templates\//, '' }
+    self.name_filter = lambda { |n| n.sub(/^templates\//, '').sub(%r{/_(.*)$}, '/\1') }
 
     def prepare
       @namespace = self.class.default_namespace
