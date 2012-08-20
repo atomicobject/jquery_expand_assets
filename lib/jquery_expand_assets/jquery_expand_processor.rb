@@ -1,7 +1,7 @@
 require 'tilt'
 
-module ExpandAssets
-  class ExpandProcessor < Tilt::Template
+module JqueryExpandAssets
+  class JqueryExpandProcessor < Tilt::Template
     class << self
       # A proc that is called to modify the template name used as the
       # JST key. The proc is passed the name as an argument and should

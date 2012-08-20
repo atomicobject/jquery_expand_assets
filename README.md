@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'expand_assets'
+    gem 'jquery_expand_assets'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install expand_assets
+    $ gem install jquery_expand_assets
 
 ## Usage
 
