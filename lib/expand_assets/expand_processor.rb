@@ -33,7 +33,7 @@ module ExpandAssets
                """
         #{namespace}[#{name.inspect}] = (directive) ->
           template ||= $(html)
-          template.expand(directive)
+          template.expand(directive).children()
       COFFEE
     end
 
