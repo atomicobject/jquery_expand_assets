@@ -11,6 +11,7 @@ Create your templates in a directory named `app/assets/javascripts/templates`. O
 Write your template and wrap it in a root element.
 
 Example: `app/assets/javascripts/templates/articles/_entry.js.coffee.expand`
+
     <div>
       <h2 class='name'></h2>
       <p class='content'></p>
@@ -19,17 +20,19 @@ Example: `app/assets/javascripts/templates/articles/_entry.js.coffee.expand`
 Your template is now available to Javascript as a function on the `JST` object. Pass an expand directive to the function and you'll be given the result minus the wrapper element.
 
 Example: see `articles/_entry.js.coffee.expand` above
+
     directive = { name: 'Joe', content: 'I love Smurfs.' }
     html = JST['articles/entry'](directive)
     $('body').append(html)
 
 In this example, the result html will be:
+
     <h2 class='name'>Joe<h2>
     <p class='content'>I love Smurfs.</p>
 
 ## Naming conventions
 
-Templates are named on the `JST` object based on their filename. Directories under `app/assets/javascripts/templates` are preserved. If the template's filename starts with an underscore, the underscore is removed from the name.
+Templates are named on the `JST` object based on their filename. Directories under `app/assets/javascripts/templates` are preserved. If the template's filename starts with an underscore, then the underscore is removed from the name.
 
 Examples:
 
