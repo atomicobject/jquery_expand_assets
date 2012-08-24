@@ -16,4 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = JqueryExpandAssets::VERSION
 
   gem.add_runtime_dependency 'tilt', '~>1'
+
+  gem.add_development_dependency 'rake', '~>0.9'
+  gem.add_development_dependency 'minitest', '~>3'
 end

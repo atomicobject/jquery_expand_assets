@@ -1,33 +1,49 @@
-require 'test/unit'
+require 'minitest/autorun'
 require 'ostruct'
 require 'jquery_expand_assets/jquery_expand_processor'
 
-class JqueryExpandProcessorTest < Test::Unit::TestCase
+class JqueryExpandProcessorTest < MiniTest::Unit::TestCase
   def test_wraps_content_with_expand_function
-    content = "<p><div>butters cookies</div></p>"
-    processor = build_with_content(content)
+    result = process content: "<p><div>butters cookies</div></p>"
 
-    result = processor.evaluate(scope, nil)
-
-    assert_match content, result
-    assert_match %r{template.expand\(directive\).children\(\)}, result
+    assert_match "<p><div>butters cookies</div></p>", result
+    assert_match %r{\.expand\(directive\)\.children\(\)}, result
   end
 
-  def test_the_default_namespace
-    processor = build
-
-    assert_equal 'this.JST', processor.namespace
-  end
-
-  def test_uses_name_filter_to_setup_template_name
-    processor = build
-
-    result = processor.evaluate(scope('templates/projects/_comment'), nil)
+  def test_names_the_template_after_the_file_name
+    result = process filename: 'templates/projects/_comment'
 
     assert_match 'this.JST["projects/comment"]', result
   end
 
+  def test_handles_file_names_with_multiple_levels_of_nesting
+    result = process filename: 'templates/projects/comments/concerns/_alert'
+
+    assert_match 'this.JST["projects/comments/concerns/alert"]', result
+  end
+
+  def test_does_not_yet_handle_file_names_with_one_level_of_nesting
+    result = process filename: 'templates/_comment'
+
+    refute_match 'this.JST["comment"]', result
+  end
+
+  def test_handles_template_names_without_leading_underscore
+    result = process filename: 'templates/users/avatar'
+
+    assert_match 'this.JST["users/avatar"]', result
+  end
+
   private
+  def process(optz)
+    content, filename = optz.values_at(:content, :filename)
+    content ||= "<b>grover</b>"
+    filename ||= "butters/_cookies"
+
+    processor = JqueryExpandAssets::JqueryExpandProcessor.new do content end
+    processor.evaluate(os(logical_path: filename), nil)
+  end
+
   def build_with_content(content='')
     JqueryExpandAssets::JqueryExpandProcessor.new do content end
   end
