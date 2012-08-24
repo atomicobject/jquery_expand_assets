@@ -4,6 +4,10 @@ A Sprockets processor that wraps html in a jquery.expand function. It is specifi
 
 The processor outputs CoffeeScript, so you'll need to have the result be processed by the CoffeeScript processor.
 
+## Requirements
+
+This gem is syntax compatible with Ruby 1.9. It does not run on older Rubies.
+
 ## Creating and using templates
 
 Create your templates in a directory named `app/assets/javascripts/templates`. Organize your templats within subdirectories. I personally organize them based on what resource they're associated with.
@@ -44,6 +48,10 @@ Examples:
 
 * [jquery.expand](https://github.com/atomicobject/jquery.expand)
 * [jquery.expand examples](http://spin.atomicobject.com/2011/07/10/jquery-expand-examples/)
+
+## Development
+
+This project depends on bundler for installing and using development gems. You'll need to `bundle install` and `bundle exec rake` to run the tests.
 
 ## Thanks so much!
 
