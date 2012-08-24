@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["fletcher@atomicobject.com"]
   gem.description   = %q{Sprockets processor for jquery.expand templates}
   gem.summary       = %q{Sprockets processor for jquery.expand templates}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/atomicobject/jquery_expand_assets"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
