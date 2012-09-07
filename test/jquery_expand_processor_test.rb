@@ -34,6 +34,24 @@ class JqueryExpandProcessorTest < MiniTest::Unit::TestCase
     assert_match 'this.JST["users/avatar"]', result
   end
 
+  def test_handles_template_names_with_embedded_underscores
+    result = process filename: 'templates/users/foo_bar_baz_qux_quux'
+
+    assert_match 'this.JST["users/foo_bar_baz_qux_quux"]', result
+  end
+
+  def test_handles_directory_names_with_embedded_underscores
+    result = process filename: 'templates/admin_users/foo_bar_baz_qux_quux'
+
+    assert_match 'this.JST["admin_users/foo_bar_baz_qux_quux"]', result
+  end
+
+  def test_handles_deep_directory_trees_with_embedded_underscores
+    result = process filename: 'templates/stuff_1/admin_users/foo_bar_baz_qux_quux'
+
+    assert_match 'this.JST["stuff_1/admin_users/foo_bar_baz_qux_quux"]', result
+  end
+
   private
   def process(optz)
     content, filename = optz.values_at(:content, :filename)

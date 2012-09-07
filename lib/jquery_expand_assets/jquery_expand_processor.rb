@@ -6,7 +6,7 @@ module JqueryExpandAssets
     def prepare; end
 
     def evaluate(scope, locals, &block)
-      name = scope.logical_path.sub(/^templates\//, '').sub(%r{/?_(.*)$}, '/\1')
+      name = scope.logical_path.sub(/^templates\//, '').sub(%r{/?_?([^/]*)$}, '/\1')
       <<-COFFEE
         this.JST ||= {}
         template = null
