@@ -1,4 +1,4 @@
-# jquery.expand assets [![Build Status](https://secure.travis-ci.org/atomicobject/jquery_expand_assets.png)](http://travis-ci.org/atomicobject/jquery_expand_assets)
+# jquery.expand assets [![Build Status](https://secure.travis-ci.org/atomicobject/jquery_expand_assets.png)](http://travis-ci.org/atomicobject/jquery_expand_assets) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/atomicobject/jquery_expand_assets)
 
 A Sprockets processor that wraps html in a jquery.expand function. It is specifically meant to work within the Rails asset pipeline.
 
