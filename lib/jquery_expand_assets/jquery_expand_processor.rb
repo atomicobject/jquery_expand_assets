@@ -14,7 +14,7 @@ module JqueryExpandAssets
                #{data}
                """
         this.JST[#{name.inspect}] = (directive) ->
-          template ||= $(html)
+          template ||= $($.parseHTML(html)).filter('*')
           template.expand(directive).children()
       COFFEE
     end
