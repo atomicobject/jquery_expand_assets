@@ -10,7 +10,7 @@ This gem is syntax compatible with Ruby 1.9. It does not run on older Rubies.
 
 ## Creating and using templates
 
-Create your templates in a directory named `app/assets/javascripts/templates`. Organize your templats within subdirectories. I personally organize them based on what resource they're associated with.
+Create your templates in a directory named `app/assets/javascripts/templates`. Organize your templates within subdirectories. I personally organize them based on what resource they're associated with.
 
 Write your template and wrap it in a root element.
 
@@ -60,5 +60,5 @@ I'd like to give a huge 'thank you' to the [Sprockets](https://github.com/ssteph
 Authors
 =======
 * Matt Fletcher (fletcher@atomicobject.com)
-* © 2012 [Atomic Object](http://www.atomicobject.com/)
+* © 2013 [Atomic Object](http://www.atomicobject.com/)
 * More Atomic Object [open source](http://www.atomicobject.com/pages/Software+Commons) projects
